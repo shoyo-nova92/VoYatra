@@ -1,0 +1,15 @@
+# VoYatra showcase recap
+
+## Where I started
+
+I wanted to show how VoYatra turns flight search results into structured records. I first verified the local Kafka connection by sending the synthetic test message `TEST001` to `flight-data`. The live Booking.com search was unreliable in the Chromium window launched by the scraper.
+
+## How I got it working
+
+I ran the Mumbai-to-Delhi search in Brave, where the flight results loaded. I added a way to pass the saved results page to `flight_scraper.py --html`. The first saved file turned out to be the search form, so I saved the tab with the actual flight cards and added a check that explains the mistake when the saved file contains the search-form provenance marker.
+
+## Where I ended
+
+I extracted flight records from the saved Brave results and published them to Kafka. Kafka UI showed a Mumbai-to-Delhi record at partition 0, offset 17. Some fields were missing, including the airline on that record. For the showcase, I prepared `flight-data-showcase` and verified it started empty so I could show records arriving after the scraper ran.
+
+The [technical specification](specs.md) documents the setup and how to reproduce the flow.

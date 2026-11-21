@@ -1,0 +1,22 @@
+# Generated scraper data
+**/data/raw/
+
+# Logs
+**/logs/
+*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Virtual environments
+.venv/
+venv/
+
+# Demo video
+demo.mp4
